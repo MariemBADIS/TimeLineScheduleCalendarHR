@@ -1,0 +1,78 @@
+.timetable{
+    display:flex;
+    align-items:stretch;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding-left: 0;
+    padding-right: 0;
+}
+.timetable *{box-sizing:inherit}
+.timetable li,.timetable ul{list-style-type:none;margin:0}
+.timetable li,.timetable ul{padding:0}.timetable>aside{flex:none;max-width:30%;padding:0!important;margin-top:46px;border-right:5px solid transparent;position:relative}
+.timetable>aside li{padding:0 15px;background-color:#efefef;line-height:50px}.timetable>aside li:not(:last-of-type){border-bottom:1px solid #fff; display: none;}.timetable>aside .row-heading{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.timetable>aside:before{content:"Employés";display:none;background-color:#fff;height:46px;position:relative;margin-top:-46px;top:0}
+.timetable aside li,.timetable time li{height:50px}
+.timetable>section{flex:3 0 auto;width:0;padding:0!important}
+.timetable>section time{display:block;width:100%;overflow-x:scroll;-webkit-overflow-scrolling:touch;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.timetable>section>header{position:relative;top:0;z-index:3;width:100%;overflow:hidden;background:none;transform-style:preserve-3d}.timetable>section>header ul{display:flex;height:60px;line-height:0;align-items:center}
+.timetable>section>header li{flex:none;display:block;position:relative;width:52px}
+.timetable>section>header li .time-label{display:block;position:absolute;left:0}
+.timetable>section>header li:not(:first-of-type) .time-label{transform:translateX(-50%)}
+.timetable>section>header li:last-of-type{width:0}
+.timetable>section>header li:last-of-type .time-label{transform:translateX(-100%)}
+.timetable ul.room-timeline{border-left:none;display:flex;flex-direction:column;align-items:stretch}
+.timetable ul.room-timeline li{position:relative;background-color:#f4f4f4;height:50px}
+.timetable ul.room-timeline li:nth-of-type(odd){background-color:#fdfdfd}
+.timetable ul.room-timeline li:first-of-type{border-top:1px solid #e5e5e5}
+.timetable ul.room-timeline li:last-of-type{border-bottom:1px solid #e5e5e5}
+.timetable ul.room-timeline li:not(:last-of-type){border-bottom:none; margin-bottom: 20px}
+.timetable ul.room-timeline li:first-child .time-entry{height:50px; border-radius: 5px;}
+.timetable ul.room-timeline li:after,.timetable ul.room-timeline li:before{content:"";position:absolute;z-index:1;left:0;top:0;right:0;bottom:0}.timetable ul.room-timeline li:before{background-image:linear-gradient(90deg,#e5e5e5 1px,transparent 0);background-size:24px auto}.timetable ul.room-timeline li:after{background-image:linear-gradient(90deg,#e5e5e5,#e5e5e5 1px,#f4f4f4 0,#f4f4f4 2px,#e5e5e5 0,#e5e5e5 3px,transparent 0,transparent);background-size:96px auto;background-position:-2px 0; background: #fff;}
+.timetable .time-entry{
+    background-color:#ea443d;
+    transition:background-color .2s;
+    height:50px;
+    display:block;position:absolute;
+    z-index:2;
+    padding:0 5px;
+    white-space:normal;
+    overflow:hidden;
+    color:#fff;
+    border:1px solid #ea443d;
+    transform-style:preserve-3d;
+    border-radius: 5px;
+}
+.timetable .time-entry small{
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    display:block; height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-right: 2px solid #fff;
+    border-left: 2px solid #fff;
+    text-transform: uppercase;
+}
+.timetable aside li{display: none;}
+.timetable .time-entry:hover{background-color:#ea443d}
+
+.timetable span[title="Caisse"].time-entry {
+    background-color: #29bb8e;
+    border:1px solid #29bb8e;
+}
+.timetable span[title="Livraison"].time-entry {
+    background-color: #ea443d;
+    border:1px solid #ea443d;
+}
+.timetable span[title="Cuisine"].time-entry {
+    background-color: #389ae3;
+    border:1px solid #389ae3;
+}
+.timetable span[title="Ouverture"].time-entry {
+    background-color: #8036d6;
+    border:1px solid #8036d6;
+}

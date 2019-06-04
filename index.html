@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Restaurant Application</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Bootstrap Core CSS -->
+	<link href="assets/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="assets/myStyle.css">
+	<!-- Graph CSS -->
+	<link href="assets/font-awesome.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<!-- //jQuery -->
+	<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+	<script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
+
+	<!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+	<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+	<link rel="stylesheet" href="timetablejs.css">
+	<link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+	<div class="page-container sidebar-collapsed">
+		<!--/content-inner-->
+		<div class="left-content">
+			<div class="mother-grid-inner">
+				<!--header start here-->
+				<div class="header-main">
+					<div class="row">
+						<div class="col-md-0 col-lg-2 col-xl-4"></div>
+						<div class="col-12 col-xl-2">
+							<div class="w3layouts-left">
+								<!--search-box-->
+								<div class="w3-search-box">
+									<!-- Search form -->
+									<form class="form-inline active-cyan-4">
+										<input class="form-control form-control-sm mr-3" type="text"
+											placeholder="Rechercher" aria-label="Search">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</form>
+								</div>
+								<!--//end-search-box-->
+							</div>
+						</div>
+						<div class="col-md-2 bloc-2-header">
+							<div class="w3layouts-right">
+								<div class="profile_details_left">
+									<!--notifications of menu start -->
+									<ul class="nofitications-dropdown">
+										<li class="dropdown head-dpdn">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+												aria-expanded="false"><i class="fa fa-question-circle-o"></i></a>
+										</li>
+										<li class="dropdown head-dpdn">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+												aria-expanded="false"><i class="fa fa-bell-o"></i></a>
+										</li>
+									</ul>
+								</div>
+								<!--notification menu end -->
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="profile_details w3l">
+								<ul>
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+											aria-expanded="false">
+											<div class="profile_img">
+												<span class="profil-img"><img src="images/in4.jpg" alt=""> </span>
+												<div class="user-name">
+													<p>Bonjour, <span>Benoit Dupont</span><i
+															class="fa fa-angle-down"></i></p>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- div contenu -->
+				<div class="principal-content">
+					<div class="bloc-top row">
+						<div class="col-xl-6 col-12 planing">
+							<p class="title">Planning
+								<i class="fa fa-angle-right"></i>
+								<span>Planing semaine S2</span>
+							</p>
+						</div>
+						<div class="col-xl-6 col-12 text-right">
+							<button type="button" class="btn">Nouveau Shift</button>
+							<button type="button" class="btn">Nouvel Employé</button>
+						</div>
+						<div class="col-xl-6 col-12 mt-3">
+							<div class="row date-perso">
+								<div class="date col-4">
+									<div class="bootstrap-iso">
+										<form action="" class="form-horizontal" method="post">
+											<div class="form-group ">
+												<div class="input-group">
+													<input class="form-control" id="date" name="date"
+														placeholder="MM/DD/YYYY" type="text" />
+													<div class="input-group-addon">
+														<i class="fa fa-calendar">
+														</i>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="mode-affichage col-xl-2 col-12">
+									<span>
+										<i class="fa fa-th"></i>
+									</span>
+									<span>
+										<i class="fa fa-list"></i>
+									</span>
+								</div>
+								<div class="col-12 col-xl-4 botton-taux">
+									<button type="button" class="btn btn-moe">Taux de MOE : <span>96%</span></button>
+								</div>
+							</div>
+						</div>
+						<div class="col-0 col-xl-4 mt-3 perso-marg-res">
+						</div>
+						<div class="col-12 col-lg-12 mt-3 perso-marg-res">
+							<div class="icon-plus-utilisateur row float-right">
+								<div class="icon col-1">
+									<i class="fa fa-user-times"></i>
+								</div>
+								<div class="icon col-1">
+									<i class="fa fa-arrow-down"></i>
+								</div>
+								<div class="icon col-1">
+									<i class="fa fa-search"></i>
+								</div>
+								<div class="icon col-1">
+									<i class="fa fa-ellipsis-h"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bloc-principal-emp-cal row mt-3">
+						<div class="col-2 bloc-gauche">
+							<div class="row">
+								<button type="button" class="btn btn-primary btn-EmpPos">Employés</button>
+								<button type="button" class="btn btn-EmpPos">Postes</button>
+							</div>
+							<div class="mt-3 list-utilisateur row">
+
+								<!-- Contenedor -->
+								<ul id="accordion" class="accordion">
+									<li>
+										<div class="link">Alexis Vassili<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+									<li>
+										<div class="link">Romane Ollive<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+									<li>
+										<div class="link">Zohra Luiz<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+									<li>
+										<div class="link">Thomas Bellard<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+									<li>
+										<div class="link">Thibault Coste<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+									<li>
+										<div class="link">Damien Belcier<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+									<li>
+										<div class="link">Nom1 prenom1<i class="fa fa-chevron-down"></i></div>
+										<ul class="submenu">
+											<li>6:15</li>
+											<li>SEM : 22:00/24:00</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="timetable col-10 calendar-employee">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--sidebar-menu-->
+		<div class="sidebar-menu">
+			<header class="logo1">
+				<a href="#" class="sidebar-icon">
+					<span>
+						<img src="images/logo.png" alt="" width="30" height="30">
+					</span>
+				</a>
+			</header>
+			<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+			<div class="menu">
+				<ul id="menu">
+					<li><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span>
+						</a></li>
+					<li id="menu-academico"><a href="#"><i class="fa fa-user"></i><span>Inbox</span>
+						</a></li>
+					<li><a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i><span>Charts</span>
+						</a></li>
+					<li id="menu-academico"><a class="active" href="#"><i
+								class="fa fa-calendar-check-o"></i><span>Calendar</span>
+						</a></li>
+					<li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Short
+								Codes</span>
+						</a>
+					</li>
+					<li id="menu-academico"><a href="#"><i class="fa fa-hand-pointer-o"
+								aria-hidden="true"></i><span>Pointers</span>
+						</a></li>
+					<li id="menu-academico"><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i><span> UI
+								Components</span>
+							<i class="fas fa-utensils"></i>
+						</a>
+					</li>
+					<li><a href="#"><i class="fa fa-table"></i> <span>Tables</span>
+						</a></li>
+					<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Maps</span>
+						</a></li>
+					<li id="menu-academico"><a href="#"><i class="fa fa-file-text-o"></i> <span>Pages</span>
+						</a>
+					</li>
+					<li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Forms</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+	<script>
+		$(document).ready(function () {
+			var date_input = $('input[name="date"]'); //our date input has the name "date"
+			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+			date_input.datepicker({
+				format: 'mm/dd/yyyy',
+				container: container,
+				todayHighlight: true,
+				autoclose: true,
+			})
+		});
+	</script>
+
+	<script src="timetable.js"></script>
+	<script>
+		var timetable = new Timetable()
+		timetable.setScope(6, 1)
+		timetable.addLocations(['Silent Disco', 'Nile', 'Len Room', 'Maas Room', 'berlin', 'Tunisia', 'Algeria'])
+		timetable.addEvent('Cuisine', 'Nile', new Date(2015, 7, 17, 10, 45), new Date(2015, 7, 17, 12, 30));
+		timetable.addEvent('Ouverture', 'Silent Disco', new Date(2015, 7, 17, 6, 0), new Date(2015, 7, 17, 8, 0));
+		timetable.addEvent('Livraison', 'Silent Disco', new Date(2015, 7, 17, 8, 0), new Date(2015, 7, 17, 10, 0));
+		timetable.addEvent('Caisse', 'Silent Disco', new Date(2015, 7, 17, 10, 30), new Date(2015, 7, 17, 12, 45));
+		timetable.addEvent('Caisse', 'Len Room', new Date(2015, 7, 17, 9, 45), new Date(2015, 7, 17, 11, 30));
+		timetable.addEvent('Cuisine', 'Maas Room', new Date(2015, 7, 17, 10, 45), new Date(2015, 7, 17, 12, 30));
+		timetable.addEvent('Livraison', 'Maas Room', new Date(2015, 7, 17, 13, 00), new Date(2015, 7, 17, 15, 30));
+		timetable.addEvent('Ouverture', 'berlin', new Date(2015, 7, 17, 6, 0), new Date(2015, 7, 17, 10, 0));
+		timetable.addEvent('Cuisine', 'berlin', new Date(2015, 7, 17, 10, 45), new Date(2015, 7, 17, 11, 30));
+		timetable.addEvent('Caisse', 'berlin', new Date(2015, 7, 17, 12, 45), new Date(2015, 7, 17, 14, 30));
+		timetable.addEvent('Livraison', 'Tunisia', new Date(2015, 7, 17, 10, 45), new Date(2015, 7, 17, 12, 30));
+		timetable.addEvent('Ouverture', 'Algeria', new Date(2015, 7, 17, 6, 0), new Date(2015, 7, 17, 8, 30));
+
+		var options = {
+			url: '#', // makes the event clickable
+			class: 'vip', // additional css class
+			data: { // each property will be added to the data-* attributes of the DOM node for this event
+				id: 4,
+				ticketType: 'VIP'
+			},
+			onClick: function (event, timetable, clickEvent) { } // custom click handler, which is passed the event object and full timetable as context  
+		};
+		timetable.addEvent('Jam Session', 'Nile', new Date(2015, 7, 17, 21, 15), new Date(2015, 7, 17, 23, 30), options);
+
+		var renderer = new Timetable.Renderer(timetable);
+		renderer.draw('.timetable'); // any css selector
+
+	</script>
+	<script>
+		$(document).ready(function () {
+			$(function () {
+				var Accordion = function (el, multiple) {
+					this.el = el || {};
+					this.multiple = multiple || false;
+
+					// Variables privadas
+					var links = this.el.find('.link');
+					// Evento
+					links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
+				}
+				var accordion = new Accordion($('#accordion'), false);
+			});
+		});
+
+	</script>
+</body>
+
+</html>
